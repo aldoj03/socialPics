@@ -21,6 +21,10 @@ class UserController extends Controller
     private $email ;
     private $image;
     
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 
     public function config()
     {

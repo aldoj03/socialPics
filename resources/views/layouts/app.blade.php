@@ -15,6 +15,7 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
+    
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -50,13 +51,16 @@
                                 </li>
                             @endif
                         @else
-                        <img src=" {{ route('user.avatar', ['filename' => Auth::user()->image])}} " class="avatar">
+                       
                         <li class="nav-item"><a class="nav-link" href="">Inicio</a>
                         </li>
-                        <li class="nav-item" > 
+                        <li class="nav-item" >
                         <a class="nav-link" href="">Subir Imagen</a>
                         </li>
-                            <li class="nav-item dropdown">
+                        
+                        @include('includes/avatar')
+                        
+                            <li class="nav-item dropdown ">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
