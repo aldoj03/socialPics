@@ -76,7 +76,6 @@
 
                             <div class="col-md-6">
                             @include ('includes/avatar')
-                            
                                 <input id="image_path" type="file" class="{{ $errors->has('image_path') ? ' is-invalid' : '' }}" name="image_path"   >
                                 @if ($errors->has('image_path'))
                                     <span class="invalid-feedback" role="alert">

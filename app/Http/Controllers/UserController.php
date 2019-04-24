@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Storage;
 
 
 
+
 class UserController extends Controller
 {
     private $name ;
@@ -33,9 +34,9 @@ class UserController extends Controller
 
 
     public function getImage($filename)
-    {
-       $file = Storage::disk('users')->get($filename);
-       return new response($file,200);
+    {     
+    $file = Storage::disk('users')->get($filename);
+    return new response($file,200);
     }
     
 
@@ -46,7 +47,7 @@ class UserController extends Controller
          $id = $user->id;
          //recibe la image
      $image_path = $request->file('image_path'); 
-    
+
         //validar campos
         $validate = $this->validate($request,[
             'name' => ['required', 'string', 'max:255'],
@@ -74,6 +75,13 @@ class UserController extends Controller
 
             $this->image = $image_name;
         }
+        else{
+             $this->image = $user->image;
+        }
+        /* else{
+            $this->image = 'guest.png';
+        } */
+       
 
         return $user;
     }
