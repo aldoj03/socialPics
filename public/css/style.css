@@ -1,13 +1,56 @@
-.container-avatar .avatar{
-    width: 45px;
-    height: 45px;
-    border-radius: 60%;
+.container-avatar {
     display: block; 
-
+    width: 45px;
+    height: 45px;  
+    float: left;
+    
 }
 
-.container-avatar{
-    margin-bottom:
-    3px;
+.container-avatar .avatar{
+    width: 100%;
+    height: 100%;
+    border-radius: 60%;
+}
+
+.pub .data-pub .data-user{
+float: left;
+margin-left: 5px;
+font-weight: bold;
+line-height: 40px;
+color: burlywood;
+}
+
+
+.pub .data-pub{
+  float: left;
+  width: 40%;
+  
+}
+.pub{
+    margin: 0px;
+    padding: 5px;
+}
+
+.image-container{
     
+    width: 100%;
+    height: 450px;
+   overflow: hidden;
+}
+
+.card-body .image-container img{
+    width: 100%;
+    height: 100%;
+}
+
+
+.card-pub-body{
+    padding: 0;
+}
+
+.card-pub {
+    margin-bottom: 8px
+}
+.pub-footer{
+    background: #f7f7f7
 }

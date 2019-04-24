@@ -54,7 +54,7 @@ class UserController extends Controller
             'surname' => ['required', 'string', 'max:255'],
             'nickname' => ['required', 'string', 'max:255','unique:users,nickname,'.$id],
             'email' => ['required', 'string', 'email', 'max:255','unique:users,email,'.$id],
-            'image_path' => ['mimes:jpeg,png', 'max:10000'] ,
+            'image_path' => ['image', 'max:10000'] ,
             ]);
     
         //recoger datos del formulario
@@ -78,11 +78,7 @@ class UserController extends Controller
         else{
              $this->image = $user->image;
         }
-        /* else{
-            $this->image = 'guest.png';
-        } */
        
-
         return $user;
     }
 
