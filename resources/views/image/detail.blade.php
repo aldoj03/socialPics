@@ -1,11 +1,10 @@
 @extends('layouts.app')
-
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-7">
+        <div class="col-md-8">
         @include('includes.message')
-        @foreach($images as $image)
+       
             <div class="card-pub card " >
                 <div class="card-header pub" >
                     <div class="data-pub">
@@ -13,17 +12,16 @@
                             <img src=" {{ route('user.avatar', ['filename' => $image->user->image])}} " class="avatar">
                         </div>
                         <div class="data-user">
+                        <a href=" {{ route('image.detail' , ['id' =>$image->id]) }}">
                             {{ $image->user->name .' |'}}
                              <span class="nick">   {{'@'.$image->user->nickname }}</span>
-                        
+                        </a>
                         </div>
                     </div>
                 </div>
                 <div class="card-pub-body card-body ">
                     <div class="image-container">
-                        <a href=" {{ route('image.detail' , ['id' =>$image->id]) }}">
                         <img src=" {{ route('image.file', ['filename' => $image->image_path]) }} "  >
-                    </a>
                     </div>
                     <div class="pub-footer">     
                            <div>            
@@ -35,10 +33,6 @@
                     </div>
                 </div>
             </div>
-         @endforeach   
-             <div class="row justify-content-center">
-         {{$images->links()}}
-             </div> 
         </div>
     </div>
 </div>

@@ -1,3 +1,6 @@
+*{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+}
 .container-avatar {
     display: block; 
     width: 45px;
@@ -12,14 +15,18 @@
     border-radius: 60%;
 }
 
-.pub .data-pub .data-user{
+.data-user{
 float: left;
-margin-left: 5px;
+margin-left: 10px;
 font-weight: bold;
 line-height: 40px;
-color: burlywood;
+
 }
 
+.nick{
+    color: burlywood;
+    font-weight: lighter
+}
 
 .pub .data-pub{
   float: left;
@@ -52,5 +59,30 @@ color: burlywood;
     margin-bottom: 8px
 }
 .pub-footer{
-    background: #f7f7f7
+    width: 100%;
+    float: left;
+    padding: 0px;
+    background: #f7f7f7;
+}
+.description{
+    
+    margin:0px ;
+    margin-left: 10px;
+    line-height: 40px;
+    display: inline;
+    font-weight: lighter;
+    color: rgb(190, 128, 12)
+}
+
+.btn-comments{
+  height: 25px;
+  line-height: 13px;
+  margin: 0px 0px 3px 5px;
+}
+
+.heart{
+    float: right;
+    width: 1.5em;
+    margin: 8px;
+    
 }
