@@ -16,10 +16,10 @@
 }
 
 .data-user{
-float: left;
 margin-left: 10px;
 font-weight: bold;
 line-height: 40px;
+display: inline;
 
 }
 
@@ -63,21 +63,21 @@ line-height: 40px;
     float: left;
     padding: 0px;
     background: #f7f7f7;
+    padding-left: 5px 
 }
-.description{
-    
-    margin:0px ;
+.description{ 
+    margin: 0px;
     margin-left: 10px;
-    line-height: 40px;
-    display: inline;
     font-weight: lighter;
-    color: rgb(190, 128, 12)
+    color: rgb(190, 128, 12);
+    height: 21px;
+    line-height: 8px
 }
 
 .btn-comments{
   height: 25px;
   line-height: 13px;
-  margin: 0px 0px 3px 5px;
+  margin: 0px 0px 3px 2px;
 }
 
 .heart{
@@ -85,4 +85,21 @@ line-height: 40px;
     width: 1.5em;
     margin: 8px;
     
+    
+}
+
+.desc{
+line-height: 0px;
+}
+
+.date{
+    color: rgb(11, 199, 199)
+}
+
+.form-comment{
+    padding: 7px;
+    
+}
+.spacig-letter{
+    letter-spacing: 1.2px
 }

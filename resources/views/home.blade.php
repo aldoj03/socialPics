@@ -26,10 +26,11 @@
                     </a>
                     </div>
                     <div class="pub-footer">     
-                           <div>            
+                        <div>            
                         <img src="{{ asset('img/heart_gray.png') }}"  class="heart">   
-                            <div class="data-user">{{ $image->user->name }}</div>
-                            <p class="description">{{$image->description}}</p>
+                            <span class="data-user desc">{{ $image->user->name.'|'}}</span>
+                            <span class="date" >{{\FormatTime::LongTimeFilter($image->created_at)}}</span>
+                            <p class="description spacig-letter">{{$image->description}}</p>
                         </div>
                         <a href="" class="btn btn-primary btn-info btn-comments">comentarios ({{ count($image->coments)}})</a>
                     </div>

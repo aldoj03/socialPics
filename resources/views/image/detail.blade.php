@@ -2,7 +2,7 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-9">
         @include('includes.message')
        
             <div class="card-pub card " >
@@ -11,11 +11,9 @@
                         <div class="container-avatar ">
                             <img src=" {{ route('user.avatar', ['filename' => $image->user->image])}} " class="avatar">
                         </div>
-                        <div class="data-user">
-                        <a href=" {{ route('image.detail' , ['id' =>$image->id]) }}">
+                        <div class="data-user">   
                             {{ $image->user->name .' |'}}
-                             <span class="nick">   {{'@'.$image->user->nickname }}</span>
-                        </a>
+                           <span class="nick">   {{'@'.$image->user->nickname }}</span>        
                         </div>
                     </div>
                 </div>
@@ -27,9 +25,26 @@
                            <div>            
                         <img src="{{ asset('img/heart_gray.png') }}"  class="heart">   
                             <div class="data-user">{{ $image->user->name }}</div>
-                            <p class="description">{{$image->description}}</p>
+                            <span class="date" >{{\FormatTime::LongTimeFilter($image->created_at)}}</span>
+                            <p class="description spacig-letter">{{$image->description}}</p>
                         </div>
-                        <a href="" class="btn btn-primary btn-info btn-comments">comentarios ({{ count($image->coments)}})</a>
+                       <h5>comentarios ({{count($image->coments)}})</h5>
+                       <form action=" {{ route('comment.save') }} " class="form-comment " method="POST">
+                       @csrf
+
+                       <input type="hidden" name="image_id" value="{{ $image->id }}" >
+                       <hr>
+                       <p>
+                       <textarea name="content" class="form-control spacig-letter {{$errors->has('content') ? 'is-invalid' : ''}}" ></textarea>
+                       </p>
+                       <input type="submit" value="comentar" class="btn btn-success">
+                       </form>
+                   
+                       @foreach($image->coments->reverse() as $coment)
+                       <div class="data-user">{{ $coment->user->nickname }}</div>
+                            <span class="date" >{{\FormatTime::LongTimeFilter($coment->created_at)}}</span>
+                            <p class="description spacig-letter">{{$coment->content}}</p>
+                       @endforeach
                     </div>
                 </div>
             </div>
