@@ -80,13 +80,20 @@ display: inline;
   margin: 0px 0px 3px 2px;
 }
 
-.heart{
+.likes{
     float: right;
+    letter-spacing: 4px;
+}
+.likes-count{
+    font-size: 11px;
+    color: gray;
+}
+.heart{
     width: 1.5em;
     margin: 8px;
-    
-    
+    margin-right: 0px;
 }
+
 
 .desc{
 line-height: 0px;
@@ -102,4 +109,8 @@ line-height: 0px;
 }
 .spacig-letter{
     letter-spacing: 1.2px
+}
+
+.de{
+    float: right;
 }
