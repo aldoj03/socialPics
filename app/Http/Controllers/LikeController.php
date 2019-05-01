@@ -13,6 +13,17 @@ class LikeController extends Controller
         $this->middleware('auth');
     }
 
+
+    public function index()
+    {
+        $user = \Auth::user();
+        $likes = Like::where('user_id', $user->id )
+        ->orderBy('id','desc')
+        ->paginate(5);
+        return view('likes.index')
+        ->with(['likes' => $likes]);
+    }
+
     public function like($image_id)
     {
         $user = \Auth::user();
@@ -23,9 +34,11 @@ class LikeController extends Controller
             $like->user_id = $user->id;
             $like->image_id = (int)$image_id;
             $like->save();
+            $count_likes = Like::where('image_id', (int)$image_id )->count();
              return response()->json([
                 'like' => $like,
-                'message' => 'like guardado'
+                'message' => 'like guardado',
+                'count_likes' => $count_likes
             ]); 
         }
     }
@@ -34,16 +47,26 @@ class LikeController extends Controller
     {
         
          $user = \Auth::user();
-        $like = Like::where('image_id' , (int)$image_id)
-        ->where('user_id', $user->id)
-        ->first();
-        if($like){
-            $like->delete();
+         $like = Like::where('image_id' , (int)$image_id)
+         ->where('user_id', $user->id)
+         ->first();
+         if($like){
+             $like->delete();
+             $count_likes = Like::where('image_id', (int)$image_id )->count();
             return response()->json([
                 'like' => $like,
-                'message' => 'has dado dislike'
+                'message' => 'has dado dislike',
+                'count_likes' => $count_likes
             ]);
         }
         
     } 
+
+    public function countlikes($image_id)
+    {
+        $count_like = Like::where('image_id' , (int)$image_id)->count();
+        return response()->json([
+            'count' => $count_like
+        ]);
+    }
 }

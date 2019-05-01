@@ -102,4 +102,10 @@ class UserController extends Controller
         ->with(['message' => 'Usuario actualizado correctamente']);
 
     }
+
+    public function profile($id)
+    {
+       $user = User::find($id);
+       return view('user.profile')->with('user',$user);
+    }
 }

@@ -24,12 +24,12 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
+        <nav class="navbar navbar-expand-md navbar-light navbar-laravel navbar-custom">
             <div class="container">
                 <a class="navbar-brand " href="{{ url('/') }}">
                 Larafotos
                 </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
@@ -58,6 +58,9 @@
                         <li class="nav-item" >
                         <a class="nav-link" href=" {{ route('image.create') }} ">Subir Imagen</a>
                         </li>
+                        <li class="nav-item" >
+                        <a class="nav-link" href=" {{ route('likes.index') }} ">Favoritas</a>
+                        </li>
                         @if(Auth::user()->image)
                         @include('includes/avatar')
                         @endif
@@ -68,8 +71,8 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="">
-                                      Porfile
+                                    <a class="dropdown-item" href="{{ route('profile',['id' => Auth::user()->id]) }}">
+                                      Profile
                                     </a>
                                     <a class="dropdown-item" href="{{ route('config')}}">
                                       Config account

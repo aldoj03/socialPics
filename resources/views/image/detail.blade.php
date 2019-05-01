@@ -8,12 +8,11 @@
             <div class="card-pub card " >
                 <div class="card-header pub" >
                     <div class="data-pub">
-                        <div class="container-avatar ">
-                            <img src=" {{ route('user.avatar', ['filename' => $image->user->image])}} " class="avatar">
-                        </div>
+                        @include('includes/avatar')
                         <div class="data-user">   
-                            {{ $image->user->name .' |'}}
-                           <span class="nick">   {{'@'.$image->user->nickname }}</span>        
+                          <a href="{{route('profile',['id' => Auth::user()->id])}}">  {{ $image->user->name .' |'}}
+                           <span class="nick">   {{'@'.$image->user->nickname }}</span>       
+                           </a> 
                         </div>
                     </div>
                 </div>
@@ -35,7 +34,7 @@
                             @else
                             <img src="{{ asset('img/heart-gray.png') }}"  data-id="{{$image->id }}" class="heart btn-dislike" > 
                             @endif    
-                            <span class="likes-count">{{count($image->likes)}}</span>                        
+                            <span class="likes-count" >{{ $image->likes->count() }}</span>                        
                         </div>
                             <div class="data-user">{{ $image->user->name }}</div>
                             <span class="date" >{{\FormatTime::LongTimeFilter($image->created_at)}}</span>
@@ -54,13 +53,14 @@
                        </form>
                    
                        @foreach($image->coments->reverse() as $coment)
+                       <hr>
+                           <div class="comment">
                        <div class="data-user">{{ $coment->user->nickname }}</div>
                             <span class="date" >{{\FormatTime::LongTimeFilter($coment->created_at)}}</span>
                             <p class="description spacig-letter">{{$coment->content}}</p>
                             @if(Auth::check() && Auth::user()->id == $coment->user_id   )
-                            <div class="d"  >
-                            <a href=" {{ route('comment.delete', $coment->id )  }}"  class="de"  > delete</a>
-                            </div>
+                            <a href=" {{ route('comment.delete', $coment->id )  }}"  class="btn btn-primary de"  > delete</a>
+                     </div>
                             @endif
                        @endforeach
                     </div>

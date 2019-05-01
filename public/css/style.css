@@ -1,6 +1,61 @@
 *{
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
 }
+
+.dropdown-menu{
+    background: #FFC107;
+
+}
+
+.dropdown-item:hover{
+    background: #6c757d;
+    color: antiquewhite
+}
+a.btn-link{
+    color: rgb(11, 199, 199)
+}   
+a.btn-link:hover{
+    color: wheat
+}   
+.navbar-custom{
+    background-color: #318fe0;
+    border: 1px solid black;
+    
+}
+.navbar-light .navbar-nav .nav-link{
+    color: antiquewhite;
+    font-size: 15px
+}
+
+.navbar-light .navbar-nav .nav-link:hover{
+    color: white;
+}
+
+.card-body{
+    background-color: #6c757d;
+    color: whitesmoke;
+}
+
+.navbar-light .navbar-toggler{
+    background-color: #ecd502;
+    border: 1px solid black;
+}
+body{
+    background-color: #3c76a7;
+}
+
+.card{
+    border: 1px solid black;
+}
+
+.card-header{
+    background-color: rgb(228, 201, 4);
+    font-size: 15px;
+    border-bottom: 1px solid black
+}
+
+
+
 .container-avatar {
     display: block; 
     width: 45px;
@@ -13,6 +68,7 @@
     width: 100%;
     height: 100%;
     border-radius: 60%;
+    border: 1px solid black
 }
 
 .data-user{
@@ -20,11 +76,13 @@ margin-left: 10px;
 font-weight: bold;
 line-height: 40px;
 display: inline;
+color: black;
+font-size: 16px
 
 }
 
 .nick{
-    color: burlywood;
+    color: #795548;
     font-weight: lighter
 }
 
@@ -62,16 +120,22 @@ display: inline;
     width: 100%;
     float: left;
     padding: 0px;
-    background: #f7f7f7;
-    padding-left: 5px 
+    background: #6c757d;
+    padding-left: 5px ;
+    border-top: 1px solid black
 }
 .description{ 
-    margin: 0px;
+    margin: 0px auto;
     margin-left: 10px;
     font-weight: lighter;
-    color: rgb(190, 128, 12);
+    
+    color: rgb(255, 251, 211);
     height: 21px;
-    line-height: 8px
+    line-height: 12px;
+    width: 98%;
+    overflow: auto;
+    font-size: 15px;
+    
 }
 
 .btn-comments{
@@ -86,7 +150,7 @@ display: inline;
 }
 .likes-count{
     font-size: 11px;
-    color: gray;
+    color:rgb(255, 251, 211);
 }
 .heart{
     width: 1.5em;
@@ -112,5 +176,23 @@ line-height: 0px;
 }
 
 .de{
-    float: right;
+    margin: 5px
+}
+
+.container-avatar-profile{
+    width: 150px;
+    height: 150px;
+    float: left
+}
+
+.data-user-porfile{
+    color: whitesmoke;
+    margin-bottom: 10px;
+     float: left;
+     margin-left: 15px;
+     font-size: 2em;
+    }
+
+.data-pub-porfile{
+    margin-bottom: 15px
 }
