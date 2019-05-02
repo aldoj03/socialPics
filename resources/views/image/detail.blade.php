@@ -7,10 +7,12 @@
        
             <div class="card-pub card " >
                 <div class="card-header pub" >
-                    <div class="data-pub">
-                        @include('includes/avatar')
+                    <div class="data-pub">                      
+                        <div class="container-avatar">    
+                              <img src=" {{ route('user.avatar', ['filename' => $image->user->image])}} " class="avatar">
+                        </div>
                         <div class="data-user">   
-                          <a href="{{route('profile',['id' => Auth::user()->id])}}">  {{ $image->user->name .' |'}}
+                          <a href="{{route('profile',['id' => $image->user_id])}}">  {{ $image->user->name .' |'}}
                            <span class="nick">   {{'@'.$image->user->nickname }}</span>       
                            </a> 
                         </div>
