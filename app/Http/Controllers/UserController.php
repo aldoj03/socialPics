@@ -1,7 +1,6 @@
 <?php
-//TODO: hacer thumnail porfile images, 
-//TODO:poner porfile imnage por defecto, 
-//TODO:borra imagen anterior
+
+
 
 namespace App\Http\Controllers;
 
@@ -64,7 +63,12 @@ class UserController extends Controller
         $this->email = $request->input('email');
 
             //guarda la imagen
-        if($image_path){                            
+        if($image_path){          
+           
+            //borrar imagen si es diferente de guest
+            if($user->image != 'guest.png'){
+                Storage::disk('users')->delete($user->image);
+            }
             //poner nombre unico
             $image_name = time().$image_path->getClientOriginalName();
 

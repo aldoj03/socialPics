@@ -29,7 +29,7 @@ class ImageController extends Controller
             'description' => ['required'],
             'image_path' => ['Image', 'max:10000', 'required'],
             ]);
-            $description = $request->input('description');  //TODO:revisar si se valida bien
+            $description = $request->input('description');  
             $image_path = $request->file('image_path');
 
         if ($image_path) {
@@ -117,7 +117,7 @@ class ImageController extends Controller
         
         $validate = $this->validate($request, [
             'description' => ['required'],
-            'image_path' => ['Image', 'max:10000', 'required'],
+            'image_path' => ['Image', 'max:10000'],
             ]);
 
             $description = $request->input('description');
@@ -138,18 +138,15 @@ class ImageController extends Controller
              //guardar en la carpeta storage
              Storage::disk('images')->put($image_name, File::get($image));
              $image_old->image_path = $image_name;
-             $image_old->description = $description;
              
-             $image_old->save();
              
-             return redirect()->route('profile', ['id' => Auth::user()->id])
-             ->with(['message' => 'imagen editada correctamente']);
-        }
-        else{
+             
+            }
+            $image_old->description = $description;
+            
+            $image_old->save();
+            
             return redirect()->route('profile', ['id' => Auth::user()->id])
-             ->with(['message' => 'error al editar imagen']);
-        }
- 
-
+            ->with(['message' => 'imagen editada correctamente']);
     }
 }

@@ -35,6 +35,7 @@
                             <span class="likes-count">{{count($image->likes)}}</span>
                         </div>
                             <span class="data-user desc">{{ $image->user->name.'|'}}</span>
+                            
                             <span class="date" >{{\FormatTime::LongTimeFilter($image->created_at)}}</span>
                             <p class="description spacig-letter">{{$image->description}}</p>
                         </div>

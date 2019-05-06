@@ -3,12 +3,16 @@
 }
 
 .dropdown-menu{
-    background: #FFC107;
+    background: #6c757d;
 
 }
 
+.dropdown-item{
+    
+    color: floralwhite
+}
 .dropdown-item:hover{
-    background: #6c757d;
+    background: #7c8f73;
     color: antiquewhite
 }
 a.btn-link{
@@ -18,7 +22,7 @@ a.btn-link:hover{
     color: wheat
 }   
 .navbar-custom{
-    background-color: #318fe0;
+    background-color: rgb(53, 53, 53,.7);
     border: 1px solid black;
     
 }
@@ -32,16 +36,20 @@ a.btn-link:hover{
 }
 
 .card-body{
-    background-color: #6c757d;
-    color: whitesmoke;
+    background:rgb(108, 117, 125);
+    color: floralwhite;
+}
+
+.nav-link .dropdown-toggle{
+    color: wheat
 }
 
 .navbar-light .navbar-toggler{
-    background-color: #ecd502;
+    background-color: #7c8f73;
     border: 1px solid black;
 }
 body{
-    background-color: #3c76a7;
+    background-color: #f4f5fa;
 }
 
 .card{
@@ -49,9 +57,10 @@ body{
 }
 
 .card-header{
-    background-color: rgb(228, 201, 4);
+    background-color: #7c8f73;
     font-size: 15px;
-    border-bottom: 1px solid black
+    border-bottom: 1px solid black;
+    color: floralwhite
 }
 
 
@@ -89,7 +98,7 @@ font-size: 16px
 
 .pub .data-pub{
   float: left;
-  width: 40%;
+  width: 80%;
   
 }
 .pub{
@@ -110,6 +119,9 @@ font-size: 16px
 }
 
 
+.h1,h1{
+    color: rgb(53, 53, 53,.7)
+}
 .card-pub-body{
     padding: 0;
 }
@@ -194,11 +206,35 @@ line-height: 0px;
     }
 }
 
+@media (max-width: 990px){
+    .container-avatar-profile{
+        width: 125px;
+        height: 125px;  
+    }
+}
 
+.navbar-light .navbar-brand{
+    color: rgb(225, 247, 231);
+}
+.titulo{
+    text-shadow: 3px 1px 1px #464545;
+    letter-spacing: 3px;
+    font-size: 25px;
+    line-height: 16px;
+}
+
+.data-user a{
+    color: black;
+}
+a:hover{
+    color: rgb(51, 50, 50);
+    text-decoration: none;
+    
+}
 
 
 .data-user-profile{
-    color: whitesmoke;
+    color: #7c8f73;
     margin-bottom: 10px;
      float: left;
      margin-left: 15px;
@@ -214,7 +250,7 @@ line-height: 0px;
 .nick-profile{
     display: block;
     font-size: .8em;
-    color: whitesmoke
+    color: #7c8f73
 }
 
 .date-profile{

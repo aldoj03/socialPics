@@ -1,4 +1,4 @@
-@extends ('Layouts.app')
+@extends ('layouts.app')
 @section('content')
 
 <div class="container">
@@ -12,7 +12,7 @@
                    <div class="form-group row">
                             <label for="image_path" class="col-md-4 col-form-label text-md-right">{{ __('Image') }}</label>
                             <div class="container-avatar">    
-                                  <img src="{{ route('image.file', ['filename' =>$image->image_path ])}}" class="avatar" required>
+                                  <img src="{{ route('image.file', ['filename' =>$image->image_path ])}}" class="avatar" >
                             </div>
  
                          

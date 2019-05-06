@@ -4,7 +4,7 @@
 <div class="container">
       <div class="row justify-content-center">
       <div class="data-pub col-md-6 data-pub-profile">
-          
+      @include('includes.message')
               <div class="container-avatar container-avatar-profile">    
                   <img src=" {{ route('user.avatar', ['filename' => $user->image])}} " class="avatar">
               </div>
