@@ -25,12 +25,12 @@ class ImageController extends Controller
 
     public function save(Request $request)
     {
-        $description = $request->input('description');
-        $image_path = $request->file('image_path');
         $validate = $this->validate($request, [
             'description' => ['required'],
-            'image_path' => ['image', 'max:10000', 'required'],
-        ]);
+            'image_path' => ['Image', 'max:10000', 'required'],
+            ]);
+            $description = $request->input('description');  //TODO:revisar si se valida bien
+            $image_path = $request->file('image_path');
 
         if ($image_path) {
             //poner nombre unico
@@ -64,7 +64,6 @@ class ImageController extends Controller
 
         return view('image.detail', ['image' => $image]);
     }
-
 
     public function delete($image_id)
     {
@@ -101,26 +100,56 @@ class ImageController extends Controller
             'message' => $message]);
     }
 
-    public function edit($image_id )
+    public function edit($image_id)
     {
-      $user = Auth::user();
-      $image = Image::find($image_id);
+        $user = Auth::user();
+        $image = Image::find($image_id);
 
-      if($user && $image && $image->user_id == $user->id ){
-          return view('image.edit', ['image' => $image]);
-      }
-      else{
-        return redirect()->route('profile', ['id' => $user->id]);
-      }
-    }
-
-    public function update()
-    {
-        
+        if ($user && $image && $image->user_id == $user->id) {
+            return view('image.edit', ['image' => $image]);
+        } else {
+            return redirect()->route('profile', ['id' => $user->id]);
+        }
     }
 
     public function update(Request $request)
     {
-        $
+        
+        $validate = $this->validate($request, [
+            'description' => ['required'],
+            'image_path' => ['Image', 'max:10000', 'required'],
+            ]);
+
+            $description = $request->input('description');
+            $image = $request->file('image_path');
+            $image_id = $request->input('image_id');
+           
+            //encontrar la imagen anterior
+            
+         $image_old = Image::find($image_id);
+        
+         if ($image) {
+             //poner nombre unico
+             $image_name = time() . $image->getClientOriginalName();
+             
+             //eliminar imagen antigua del storage
+             Storage::disk('images')->delete($image_old->image_path);
+
+             //guardar en la carpeta storage
+             Storage::disk('images')->put($image_name, File::get($image));
+             $image_old->image_path = $image_name;
+             $image_old->description = $description;
+             
+             $image_old->save();
+             
+             return redirect()->route('profile', ['id' => Auth::user()->id])
+             ->with(['message' => 'imagen editada correctamente']);
+        }
+        else{
+            return redirect()->route('profile', ['id' => Auth::user()->id])
+             ->with(['message' => 'error al editar imagen']);
+        }
+ 
+
     }
 }

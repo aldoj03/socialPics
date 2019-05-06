@@ -31,7 +31,7 @@ window.addEventListener("load", function(){
             type: 'GET',
             success: function(response){
                 if(response.like){
-                    console.log(response.count_likes);
+                    //console.log(response.count_likes);
                     $(".likes-count").text(response.count_likes);
                     
                 }
@@ -44,6 +44,9 @@ window.addEventListener("load", function(){
 
 
 })
-console.log(window.name);
-if (window.name == "reloader") { window.name = ""; location.reload(); }
- window.onbeforeunload = function() { window.name = "reloader"; } 
+
+
+
+
+//console.log(window.name);
+ //if (window.name == "reloader") { window.name = ""; location.reload(); }window.onbeforeunload = function() //{ window.name = "reloader"; }  

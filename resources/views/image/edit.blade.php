@@ -7,13 +7,16 @@
             <div class="card">
             <div class="card-header"> Actualizar imagen</div>
                 <div class="card-body">
-                   <form action="  " method="POST" enctype="multipart/form-data">
+                   <form action=" {{ route('image.update') }} " method="POST" enctype="multipart/form-data">
                    @csrf
                    <div class="form-group row">
                             <label for="image_path" class="col-md-4 col-form-label text-md-right">{{ __('Image') }}</label>
-                            @include ('includes/avatar') 
+                            <div class="container-avatar">    
+                                  <img src="{{ route('image.file', ['filename' =>$image->image_path ])}}" class="avatar" required>
+                            </div>
+ 
                          
-
+                            
                             <div class="col-md-6">
                                 <input id="image_path" type="file" class="form-control{{ $errors->has('image_path') ? ' is-invalid' : '' }}" name="image_path" >
                             <input type="hidden" name="image_id" value="{{ $image->id }}">
