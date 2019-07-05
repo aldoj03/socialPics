@@ -6,14 +6,14 @@
         <div class="col-md-8">
        @include('includes.message')
             <div class="card">
-                <div class="card-header">Config Account</div>
+                <div class="card-header">Configuracion de cuenta</div>
 
                 <div class="card-body">
                     <form method="POST" action=" {{ route('user.update') }} " arial-label="Config" enctype="multipart/form-data" >
                         @csrf
 
                         <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
+                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Nombre') }}</label>
 
                             <div class="col-md-6">
                                 <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ Auth::user()->name }}" required autocomplete="name" autofocus>
@@ -27,7 +27,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="surname" class="col-md-4 col-form-label text-md-right">{{ __('Surname') }}</label>
+                            <label for="surname" class="col-md-4 col-form-label text-md-right">{{ __('Apellido') }}</label>
 
                             <div class="col-md-6">
                                 <input id="surname" type="text" class="form-control{{ $errors->has('surname') ? ' is-invalid' : '' }}" name="surname" value="{{ Auth::user()->surname }}" required autocomplete="surname" autofocus>
@@ -41,7 +41,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="nickname" class="col-md-4 col-form-label text-md-right">{{ __('Nickname') }}</label>
+                            <label for="nickname" class="col-md-4 col-form-label text-md-right">{{ __('Usuario') }}</label>
 
                             <div class="col-md-6">
                                 <input id="nickname" type="text" class="form-control{{ $errors->has('nickname') ? ' is-invalid' : '' }}" name="nickname" value="{{ Auth::user()->nickname }}" required autocomplete="nickname" autofocus>
@@ -55,7 +55,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail ') }}</label>
 
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ Auth::user()->email }}" required autocomplete="email">
@@ -69,11 +69,11 @@
                         </div>
                        
                         <div class="form-group row">
-                            <label for="image_path" class="col-md-4 col-form-label text-md-right">{{ __('Porfile Image') }}</label>
-
-                            @include ('includes/avatar') 
+                            <label for="image_path" class="col-md-4 col-form-label text-md-right">{{ __('Imagen de perfil') }}</label>
+                            
                             <div class="col-md-6">
-                         
+                                
+                                @include ('includes/avatar') 
                                 <input id="image_path" type="file" class="form-control{{ $errors->has('image_path') ? ' is-invalid' : '' }}" name="image_path" >
 
                                 @if ($errors->has('image_path'))
@@ -86,7 +86,7 @@
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-5">
                                 <button type="submit" class="btn btn-primary">
-                                    Update
+                                    guardar
                                 </button>
                             </div>
                         </div>

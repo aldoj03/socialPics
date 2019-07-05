@@ -4,8 +4,7 @@
     <div class="row justify-content-center">
         <div class="col-md-9">
         @include('includes.message')
-       
-            <div class="card-pub card " >
+                   <div class="card-pub card  animated 1 fadeIn" >
                 <div class="card-header pub" >
                     <div class="data-pub">                      
                         <div class="container-avatar">    
@@ -36,7 +35,7 @@
                             @else
                             <img src="{{ asset('img/heart-gray.png') }}"  data-id="{{$image->id }}" class="heart btn-dislike" > 
                             @endif    
-                            <span class="likes-count" >{{ $image->likes->count() }}</span>                        
+                            <span class="likes-count"  id="{{ $image->id}}" >{{ $image->likes->count() }}</span>                        
                         </div>
                             <div class="data-user">{{ $image->user->name }}</div>
                             <span class="date" >{{\FormatTime::LongTimeFilter($image->created_at)}}</span>

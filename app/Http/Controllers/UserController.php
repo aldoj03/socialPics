@@ -12,7 +12,6 @@ use Illuminate\Support\Facades\Storage;
 
 
 
-
 class UserController extends Controller
 {
     private $name ;

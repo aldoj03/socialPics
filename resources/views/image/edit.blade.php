@@ -10,14 +10,14 @@
                    <form action=" {{ route('image.update') }} " method="POST" enctype="multipart/form-data">
                    @csrf
                    <div class="form-group row">
-                            <label for="image_path" class="col-md-4 col-form-label text-md-right">{{ __('Image') }}</label>
-                            <div class="container-avatar">    
-                                  <img src="{{ route('image.file', ['filename' =>$image->image_path ])}}" class="avatar" >
-                            </div>
- 
-                         
+                            <label for="image_path" class="col-md-4 col-form-label text-md-right">{{ __('Imagen') }}</label>
+                            
+                            
                             
                             <div class="col-md-6">
+                                <div class="container-avatar">    
+                                      <img src="{{ route('image.file', ['filename' =>$image->image_path ])}}" class="avatar" >
+                                </div>
                                 <input id="image_path" type="file" class="form-control{{ $errors->has('image_path') ? ' is-invalid' : '' }}" name="image_path" >
                             <input type="hidden" name="image_id" value="{{ $image->id }}">
                                 @if ($errors->has('image_path'))
@@ -41,7 +41,7 @@
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-5">
                                 <button type="submit" class="btn btn-primary">
-                                    Enviar
+                                    Guardaar
                                 </button>
                             </div>
                         </div>

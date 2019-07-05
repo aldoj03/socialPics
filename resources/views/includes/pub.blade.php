@@ -1,9 +1,10 @@
-<div class="card-pub card " >
+<div class="card-pub card  	animated 1 fadeInUp " >
                 <div class="card-header pub" >
                     <div class="data-pub">
                      <div class="container-avatar">
                            <img src=" {{ route('user.avatar', ['filename' => $image->user->image])}} " class="avatar">
                      </div>
+                     
 
                         <div class="data-user">
                             <a href="{{ route('profile',['id' => $image->user_id]) }} ">{{ $image->user->name .' |'}}
@@ -14,17 +15,17 @@
                 </div>
                 <div class="card-pub-body card-body ">
                     <div class="image-container">
-                        <a href=" {{ route('image.detail' , ['id' =>$image->id]) }}">
+                      
                         <img src=" {{ route('image.file', ['filename' => $image->image_path]) }} "  >
                     </a>
                     </div>
                     <div class="pub-footer">
                         <div>
                         <div class="likes">
-                            <?php $user_like = false?>
+                            <?php $user_like = false;?>
                             @foreach($image->likes as $like)
                             @if( Auth::user()->id == $like->user_id)
-                            <?php $user_like = true?>
+                            <?php $user_like = true;?>
                             @endif
                             @endforeach
                             @if($user_like)
@@ -32,9 +33,9 @@
                             @else
                             <img src="{{ asset('img/heart-gray.png') }}"  data-id="{{$image->id }}" class="heart btn-dislike" >
                             @endif
-                            <span class="likes-count">{{count($image->likes)}}</span>
+                            <span class="likes-count" id="{{ $image->id}}">{{count($image->likes)}}</span>
                         </div>
-                            <span class="data-user desc">{{ $image->user->name.'|'}}</span>
+                            <span class="data-user desc">{{ $image->user->name.' '}}</span>
                             
                             <span class="date" >{{\FormatTime::LongTimeFilter($image->created_at)}}</span>
                             <p class="description spacig-letter">{{$image->description}}</p>
@@ -42,10 +43,10 @@
 
                         <a href="{{ route('image.detail',['id' => $image->id]) }}" class="btn btn-primary btn-info btn-comments">comentarios ({{ count($image->coments)}})</a>
                         @if( mb_stristr(Request::path(),'profile') && Auth::user()->id == $image->user_id)
-                        <a href=" {{ route('image.edit', ['id' => $image->id ]) }} " class="btn btn-primary btn-outline-warning btn-comments">Editar publicacion</a>
+                        <a href=" {{ route('image.edit', ['id' => $image->id ]) }} " class="btn btn-primary btn-warning btn-comments">Editar publicacion</a>
 
                         <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary btn-outline-danger btn-comments" data-toggle="modal" data-target="#exampleModalCenter">
+<button type="button" class="btn btn-primary btn-danger btn-comments" data-toggle="modal" data-target="#exampleModalCenter">
   Eliminar publicacion
 </button>
 

@@ -35,10 +35,12 @@ class LikeController extends Controller
             $like->image_id = (int)$image_id;
             $like->save();
             $count_likes = Like::where('image_id', (int)$image_id )->count();
+            $_SERVER['like'] = true;
              return response()->json([
                 'like' => $like,
                 'message' => 'like guardado',
-                'count_likes' => $count_likes
+                'count_likes' => $count_likes,
+                'image_id' => $image_id
             ]); 
         }
     }
@@ -56,7 +58,8 @@ class LikeController extends Controller
             return response()->json([
                 'like' => $like,
                 'message' => 'has dado dislike',
-                'count_likes' => $count_likes
+                'count_likes' => $count_likes,
+                'image_id' => $image_id
             ]);
         }
         
